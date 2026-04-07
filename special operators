@@ -1,0 +1,45 @@
+use d11;
+
+CREATE TABLE products (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    category VARCHAR(50),
+    brand VARCHAR(50),
+    price DECIMAL(10,2),
+    stock INT,
+    is_available BOOLEAN,
+    rating DECIMAL(2,1)
+);
+INSERT INTO products (id, name, category, brand, price, stock, is_available, rating) VALUES
+(1, 'iPhone 14', 'Electronics', 'Apple', 79999.00, 15, TRUE, 4.8),
+(2, 'Galaxy S23', 'Electronics', 'Samsung', 69999.00, 20, TRUE, 4.5),
+(3, 'MacBook Air', 'Electronics', 'Apple', 119999.00, 10, TRUE, 4.7),
+(4, 'Galaxy Tab S8', 'Electronics', 'Samsung', 49999.00, 5, TRUE, 4.4),
+(5, 'Sony Headphones', 'Accessories', 'Sony', 9999.00, 25, TRUE, 4.3),
+(6, 'Dell Laptop', 'Electronics', 'Dell', 85999.00, 8, TRUE, 4.6),
+(7, 'Samsung Watch', 'Accessories', 'Samsung', 12999.00, 12, TRUE, 4.2),
+(8, 'iPad Pro', 'Electronics', 'Apple', 89999.00, 7, TRUE, 4.7),
+(9, 'Logitech Mouse', 'Accessories', 'Logitech', 1999.00, 50, TRUE, 4.1),
+(10, 'OnePlus 11', 'Electronics', 'OnePlus', 59999.00, 18, TRUE, 4.4);
+
+select * from products;
+--- Get all products where brand is 'Apple' AND price is greater than 80000.
+select * from products where brand='apple' and price>80000;
+
+-- Get all products where category is 'Accessories' OR price is less than 5000.
+select * from products where category='accessories' or price<5000;
+
+
+-- Get all products where category is 'Electronics' AND stock is more than 10.
+select * from products where category='electronics' and stock<10;
+
+
+-- Get all products where brand is 'Apple' OR brand is 'Samsung' AND price is less than 90000.
+select * from products where (brand='apple' or brand='samsung') and price <90000; 
+
+
+-- Get all products where category is NOT 'Accessories' OR rating is less than 4.5.
+select * from products where category!='accessories' or rating<4.5;
+
+-- Get all products where price is between 10000 AND 70000 AND brand is NOT 'Apple'.
+select * from products where price between 10000 and 70000 and (brand!='apple');
